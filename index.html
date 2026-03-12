@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PROMOCIÓN CARPE DIEM 2023 - CUMPLEAÑOS</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    text-align:center;
+}
+
+h1{
+    margin-top:20px;
+}
+
+table{
+    margin:auto;
+    border-collapse:collapse;
+    width:40%;
+    background:white;
+}
+
+th, td{
+    border:1px solid #ccc;
+    padding:10px;
+}
+
+th{
+    background:#2c3e50;
+    color:white;
+}
+
+.cumple-hoy{
+    background:#ffe066;
+    font-weight:bold;
+}
+
+select{
+    margin:20px;
+    padding:8px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>PROMOCIÓN CARPE DIEM 2023 - CUMPLEAÑOS</h1>
+
+<label>Ordenar:</label>
+<select id="orden">
+<option value="original">Orden original</option>
+<option value="mes">Enero → Diciembre</option>
+</select>
+
+<table id="tablaCumple">
+<thead>
+<tr>
+<th>ORDEN DE LISTA</th>
+<th>EX ALUMNO</th>
+<th>CUMPLEAÑOS</th>
+</tr>
+</thead>
+
+<tbody id="cuerpoTabla">
+<tr><td>1</td><td>ANYELI A.</td><td>03/08</td></tr>
+<tr><td>2</td><td>XIOMARA A.</td><td>17/04</td></tr>
+<tr><td>3</td><td>PIERO A.</td><td>03/03</td></tr>
+<tr><td>4</td><td>TOMAS A.</td><td>22/06</td></tr>
+<tr><td>5</td><td>CARLOS B.</td><td>09/11</td></tr>
+<tr><td>6</td><td>REINAD C.</td><td>25/01</td></tr>
+<tr><td>7</td><td>LESLIE D.</td><td>12/08</td></tr>
+<tr><td>8</td><td>MARIA D.</td><td>11/05</td></tr>
+<tr><td>9</td><td>JHERSON E.</td><td>09/01</td></tr>
+<tr><td>10</td><td>HELEN E.</td><td>22/04</td></tr>
+<tr><td>11</td><td>JHONATAN E.</td><td>01/06</td></tr>
+<tr><td>12</td><td>KEVIN F.</td><td>13/08</td></tr>
+<tr><td>13</td><td>DANIEL G.</td><td>16/01</td></tr>
+<tr><td>14</td><td>ISAAC G.</td><td>18/07</td></tr>
+<tr><td>15</td><td>CRISTIAN H.</td><td>07/04</td></tr>
+<tr><td>16</td><td>NATALY H.</td><td>19/09</td></tr>
+<tr><td>17</td><td>SIDANE J.</td><td>30/12</td></tr>
+<tr><td>18</td><td>JOSE L.</td><td>24/01</td></tr>
+<tr><td>19</td><td>CARLOS M.</td><td>10/11</td></tr>
+<tr><td>20</td><td>LIZETH M.</td><td>25/02</td></tr>
+<tr><td>21</td><td>DAYANARA M.</td><td>13/05</td></tr>
+<tr><td>22</td><td>CAMILA M.</td><td>16/10</td></tr>
+<tr><td>23</td><td>VICTORIA O.</td><td>18/04</td></tr>
+<tr><td>24</td><td>PATRICIA P.</td><td>18/03</td></tr>
+<tr><td>25</td><td>STHEPHANO P.</td><td>07/03</td></tr>
+<tr><td>26</td><td>LEONEL P.</td><td>07/09</td></tr>
+<tr><td>27</td><td>KELY P.</td><td>15/10</td></tr>
+<tr><td>28</td><td>JESENIA Q.</td><td>26/10</td></tr>
+<tr><td>29</td><td>JESUS R.</td><td>12/03</td></tr>
+<tr><td>30</td><td>RICARDO R.</td><td>22/11</td></tr>
+<tr><td>31</td><td>MARCO R.</td><td>12/02</td></tr>
+<tr><td>32</td><td>DAYANA S.</td><td>24/06</td></tr>
+<tr><td>33</td><td>MAGDIEL V.</td><td>26/12</td></tr>
+<tr><td>34</td><td>LUIS V.</td><td>15/12</td></tr>
+<tr><td>35</td><td>LEONARDO V.</td><td>29/03</td></tr>
+<tr><td>36</td><td>PATRIT Y.</td><td>10/01</td></tr>
+</tbody>
+</table>
+
+<script>
+
+const cuerpo = document.getElementById("cuerpoTabla");
+const filasOriginales = Array.from(cuerpo.rows);
+
+document.getElementById("orden").addEventListener("change", function(){
+
+if(this.value === "original"){
+
+cuerpo.innerHTML="";
+filasOriginales.forEach(f => cuerpo.appendChild(f));
+
+}else{
+
+let filas = Array.from(cuerpo.rows);
+
+filas.sort((a,b)=>{
+
+let f1 = a.cells[2].innerText.split("/");
+let f2 = b.cells[2].innerText.split("/");
+
+let fecha1 = new Date(2000,f1[1]-1,f1[0]);
+let fecha2 = new Date(2000,f2[1]-1,f2[0]);
+
+return fecha1 - fecha2;
+
+});
+
+cuerpo.innerHTML="";
+filas.forEach(f => cuerpo.appendChild(f));
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
