@@ -2,29 +2,50 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+
+<!-- RESPONSIVE -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>PROMOCIÓN CARPE DIEM 2023 - CUMPLEAÑOS</title>
 
 <style>
+
+*{
+box-sizing:border-box;
+}
+
 body{
     font-family: Arial, sans-serif;
     background:#f4f6f9;
     text-align:center;
+    margin:0;
+    padding:10px;
 }
 
 h1{
     margin-top:20px;
+    font-size:clamp(18px,4vw,28px);
 }
 
+/* contenedor responsive */
+.tabla-contenedor{
+    width:100%;
+    overflow-x:auto;
+}
+
+/* tabla */
 table{
     margin:auto;
     border-collapse:collapse;
-    width:40%;
+    width:100%;
+    max-width:700px;
     background:white;
 }
 
 th, td{
     border:1px solid #ccc;
     padding:10px;
+    font-size:clamp(12px,2.5vw,16px);
 }
 
 th{
@@ -40,7 +61,18 @@ th{
 select{
     margin:20px;
     padding:8px;
+    font-size:16px;
 }
+
+/* ajustes para celulares */
+@media (max-width:600px){
+
+th,td{
+padding:8px;
+}
+
+}
+
 </style>
 </head>
 
@@ -54,10 +86,12 @@ select{
 <option value="mes">Enero → Diciembre</option>
 </select>
 
+<div class="tabla-contenedor">
+
 <table id="tablaCumple">
 <thead>
 <tr>
-<th>ORDEN DE LISTA</th>
+<th>ORDEN</th>
 <th>EX ALUMNO</th>
 <th>CUMPLEAÑOS</th>
 </tr>
@@ -93,7 +127,7 @@ select{
 <tr><td>27</td><td>KELY P.</td><td>15/10</td></tr>
 <tr><td>28</td><td>JESENIA Q.</td><td>26/10</td></tr>
 <tr><td>29</td><td>JESUS R.</td><td>12/03</td></tr>
-<tr><td>30</td><td>RICARDO R.</td><td>22/11</td></tr>
+<tr><td>30</td><td>DUSTIN R.</td><td>22/11</td></tr>
 <tr><td>31</td><td>MARCO R.</td><td>12/02</td></tr>
 <tr><td>32</td><td>DAYANA S.</td><td>24/06</td></tr>
 <tr><td>33</td><td>MAGDIEL V.</td><td>26/12</td></tr>
@@ -102,6 +136,8 @@ select{
 <tr><td>36</td><td>PATRIT Y.</td><td>10/01</td></tr>
 </tbody>
 </table>
+
+</div>
 
 <script>
 
